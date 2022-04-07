@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <style>
+            .chess-board { border-spacing: 0; border-collapse: collapse; }
+            .chess-board th { padding: .5em; }
+            .chess-board th + th { border-bottom: 1px solid #000; }
+            .chess-board th:first-child,
+            .chess-board td:last-child { border-right: 1px solid #000; }
+            .chess-board tr:last-child td { border-bottom: 1px solid; }
+            .chess-board th:empty { border: none; }
+            .chess-board td { width: 1.5em; height: 1.5em; text-align: center; font-size: 32px; line-height: 0;}
+            .chess-board .light { background: #eee; }
+            .chess-board .dark { background: #aaa; }
+        </style>
+    </head>
+    <body>
+        <table class="chess-board">
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>c</th>
+                    <th>d</th>
+                    <th>e</th>
+                    <th>f</th>
+                    <th>g</th>
+                    <th>h</th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td class="light" id="7x0" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="7x1" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="7x2" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="7x3" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="7x4" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="7x5" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="7x6" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="7x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td class="dark" id="6x0" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="6x1" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="6x2" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="6x3" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="6x4" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="6x5" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="6x6" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="6x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td class="light" id="5x0" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="5x1" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="5x2" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="5x3" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="5x4" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="5x5" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="5x6" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="5x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td class="dark" id="4x0" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="4x1" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="4x2" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="4x3" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="4x4" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="4x5" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="4x6" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="4x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td class="light" id="3x0" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="3x1" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="3x2" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="3x3" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="3x4" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="3x5" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="3x6" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="3x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td class="dark" id="2x0" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="2x1" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="2x2" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="2x3" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="2x4" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="2x5" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="2x6" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="2x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td class="light" id="1x0" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="1x1" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="1x2" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="1x3" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="1x4" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="1x5" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="1x6" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="1x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td class="dark" id="0x0" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="0x1" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="0x2" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="0x3" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="0x4" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="0x5" onclick="moverPeca(this.id)"></td>
+                    <td class="dark" id="0x6" onclick="moverPeca(this.id)"></td>
+                    <td class="light" id="0x7" onclick="moverPeca(this.id)"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="imprimirTabuleiro()">Começar</button>
+    </body>
+    <script>
+
+        class peca {
+            peca = "";
+            posicao = {
+                linha: 0,
+                coluna: 0
+            };
+            flgPecaBranca = false;
+
+            constructor(peca, posicao, flgPecaBranca){
+                this.peca = peca;
+                this.posicao = posicao;
+                this.flgPecaBranca = flgPecaBranca;
+            }
+        }
+
+        let torreBranca1 = new peca('♖', {linha: 0, coluna: 0}, true);
+        let cavaloBranca1 = new peca('♘', {linha: 0, coluna: 1}, true);
+        let bispoBranca1 = new peca('♗', {linha: 0, coluna: 2}, true);
+        let rainhaBranca = new peca('♕', {linha: 0, coluna: 3}, true);
+        let reiBranca = new peca('♔', {linha: 0, coluna: 4}, true);
+        let bispoBranca2 = new peca('♗', {linha: 0, coluna: 5}, true);
+        let cavaloBranca2 = new peca('♘', {linha: 0, coluna: 6}, true);
+        let torreBranca2 = new peca('♖', {linha: 0, coluna: 7}, true);
+        let piaoBranca1 = new peca('♙', {linha: 1, coluna: 0}, true);
+        let piaoBranca2 = new peca('♙', {linha: 1, coluna: 1}, true);
+        let piaoBranca3 = new peca('♙', {linha: 1, coluna: 2}, true);
+        let piaoBranca4 = new peca('♙', {linha: 1, coluna: 3}, true);
+        let piaoBranca5 = new peca('♙', {linha: 1, coluna: 4}, true);
+        let piaoBranca6 = new peca('♙', {linha: 1, coluna: 5}, true);
+        let piaoBranca7 = new peca('♙', {linha: 1, coluna: 6}, true);
+        let piaoBranca8 = new peca('♙', {linha: 1, coluna: 7}, true);
+
+        let torrePreta1 = new peca('♜', {linha: 7, coluna: 0}, false);
+        let cavaloPreta1 = new peca('♞', {linha: 7, coluna: 1}, false);
+        let bispoPreta1 = new peca('♝', {linha: 7, coluna: 2}, false);
+        let rainhaPreta = new peca('♛', {linha: 7, coluna: 3}, false);
+        let reiPreta = new peca('♚', {linha: 7, coluna: 4}, false);
+        let bispoPreta2 = new peca('♝', {linha: 7, coluna: 5}, false);
+        let cavaloPreta2 = new peca('♞', {linha: 7, coluna: 6}, false);
+        let torrePreta2 = new peca('♜', {linha: 7, coluna: 7}, false);
+        let piaoPreta1 = new peca('♟', {linha: 6, coluna: 0}, false);
+        let piaoPreta2 = new peca('♟', {linha: 6, coluna: 1}, false);
+        let piaoPreta3 = new peca('♟', {linha: 6, coluna: 2}, false);
+        let piaoPreta4 = new peca('♟', {linha: 6, coluna: 3}, false);
+        let piaoPreta5 = new peca('♟', {linha: 6, coluna: 4}, false);
+        let piaoPreta6 = new peca('♟', {linha: 6, coluna: 5}, false);
+        let piaoPreta7 = new peca('♟', {linha: 6, coluna: 6}, false);
+        let piaoPreta8 = new peca('♟', {linha: 6, coluna: 7}, false);
+
+        var pecas = new Map([['0x0', torreBranca1], ['0x1', cavaloBranca1], ['0x2', bispoBranca1], ['0x3', rainhaBranca], ['0x4', reiBranca], ['0x5', bispoBranca2], ['0x6', cavaloBranca2], ['0x7', torreBranca2],
+                            ['1x0', piaoBranca1], ['1x1', piaoBranca2], ['1x2', piaoBranca3], ['1x3', piaoBranca4], ['1x4', piaoBranca5], ['1x5', piaoBranca6], ['1x6', piaoBranca7], ['1x7', piaoBranca8],
+                            ['7x0', torrePreta1], ['7x1', cavaloPreta1], ['7x2', bispoPreta1], ['7x3', rainhaPreta], ['7x4', reiPreta], ['7x5', bispoPreta2], ['7x6', cavaloPreta2], ['7x7', torrePreta2],
+                            ['6x0', piaoPreta1], ['6x1', piaoPreta2], ['6x2', piaoPreta3], ['6x3', piaoPreta4], ['6x4', piaoPreta5], ['6x5', piaoPreta6], ['6x6', piaoPreta7], ['6x7', piaoPreta8]]);
+        
+                     
+        var tabuleiro = [['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''],];
+        
+        // i = linha do tabuleito | j = coluna do tabuleiro
+        imprimirTabuleiro = function(){
+            limparTabuleiro();
+            pecas.forEach(function(value){
+                tabuleiro[value.posicao.linha][value.posicao.coluna] = value.peca;
+            });
+
+            for(let i = 0; i < 8; i++){
+            for(let j = 0; j < 8; j++){
+                var peca = document.getElementById(i+"x"+j);
+                peca.innerHTML = tabuleiro[i][j];                
+                }
+            }
+        }
+
+        moverPeca = function(posicaoPeca){
+            let peca = pecas.get(posicaoPeca);
+
+            peca.flgPecaBranca ? peca.posicao.linha++ : peca.posicao.linha--;            
+            
+            pecas.set(peca.posicao.linha + 'x' + peca.posicao.coluna, peca);
+            pecas.delete(posicaoPeca);
+
+            imprimirTabuleiro();
+        }
+
+        limparTabuleiro = function(){
+            tabuleiro = [['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''], 
+                        ['', '', '', '', '', '', '', ''],];
+        }
+        
+        
+    </script>
+</html>
